@@ -394,12 +394,13 @@ Ringkasan (detail + bukti aktual di [`docs/TESTING.md`](docs/TESTING.md)):
 | T8 Backend mati | 502 + pesan jelas + pemulihan | **4/4 PASS** |
 | T9 Log container | log PG, uvicorn, Nginx, penyebab error | **5/5 PASS** |
 | T10 Env & kredensial | tidak ada rahasia di Git/image | **9/9 PASS** |
-| T11 Dokumentasi | konsistensi env var & kelengkapan dokumen | **17/20** → kini dilengkapi |
+| T11 Dokumentasi | konsistensi env var & kelengkapan dokumen | **19/20 PASS** (sisa 1: lisensi) |
 | Frontend E2E (Nginx → FastAPI → PostgreSQL) | seluruh alur UI | **22/22 PASS** |
 | Frontend E2E (mode dev) | regresi alur Live Server | **20/20 PASS** |
 
-**Total 93 pemeriksaan API/infrastruktur: 90 PASS** (3 sisanya adalah ketiadaan
-README/arsitektur/LICENSE yang dilengkapi pada fase ini) **+ 42 pemeriksaan frontend: 42 PASS**.
+**Total 135 pemeriksaan: 134 PASS** (93 pemeriksaan API & infrastruktur → 92 PASS;
+42 pemeriksaan frontend → 42 PASS). Satu-satunya sisa adalah penentuan nama pemegang
+hak cipta pada berkas `LICENSE`.
 
 Tes yang **belum** dilakukan tercatat terbuka di
 [`docs/TESTING.md`](docs/TESTING.md#tes-yang-belum-dilakukan) — terutama pengujian

@@ -29,15 +29,18 @@ disimpan di luar repository (folder temp) agar repository tetap bersih.
 | T8 Backend mati → pulih | 4 | 4 | 0 |
 | T9 Log container | 5 | 5 | 0 |
 | T10 Environment variable & kredensial | 9 | 9 | 0 |
-| T11 Dokumentasi & konfigurasi | 20 | 17 | 3 → *ditutup di Phase 6* |
-| **Subtotal API & infrastruktur** | **93** | **90** | **3** |
+| T11 Dokumentasi & konfigurasi | 20 | 19 | 1 → *LICENSE, ditutup di Phase 6* |
+| **Subtotal API & infrastruktur** | **93** | **92** | **1** |
 | Frontend E2E via Nginx (jsdom) | 22 | 22 | 0 |
 | Frontend E2E mode dev (jsdom) | 20 | 20 | 0 |
 | **Subtotal frontend** | **42** | **42** | **0** |
-| **TOTAL** | **135** | **132** | **3** |
+| **TOTAL** | **135** | **134** | **1** |
 
-3 kegagalan T11 adalah ketiadaan berkas `README.md`, dokumentasi arsitektur, dan
-`LICENSE` — ketiganya merupakan deliverable Phase 6 dan sudah ditangani (lihat §6).
+Kegagalan T11 yang tersisa adalah ketiadaan berkas `LICENSE` (keputusan lisensi tim).
+Dulu ada 3 kegagalan — ketiadaan `README.md` dan dokumentasi arsitektur — keduanya
+sudah ditangani pada Phase 6 (lihat §6).
+
+**Total keseluruhan: 134/135 pemeriksaan PASS** (92/93 API & infrastruktur + 22/22 + 20/20 frontend).
 
 ---
 
@@ -190,7 +193,7 @@ t= 3s | pesan="Layanan API sedang tidak tersedia (HTTP 502). Pastikan backend St
 | Compose memakai env var | `POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-stockify}` | PASS |
 | Backend menerima `POSTGRES_HOST=db` | `POSTGRES_HOST=db` | PASS |
 
-### T11 — Dokumentasi & konfigurasi — 17/20 (3 ditutup di Phase 6)
+### T11 - Dokumentasi & konfigurasi - 19/20 (3 ditutup di Phase 6-8)
 
 Semua 13 environment variable terverifikasi **konsisten** antara `.env.example`,
 `docker-compose.yml`, dan `backend/main.py`. Tiga berkasnya belum ada saat pengujian
@@ -250,7 +253,7 @@ Seluruh 7 skenario (tampil, tambah, edit, refresh, hapus, validasi, error) PASS.
 | PostgreSQL Phase 3 (`stockify-postgres`) masih berjalan di port 5432 | bisa membingungkan saat demo | `docker stop stockify-postgres` (jangan `rm -v`) |
 | Repository Git belum punya commit | belum siap dikirim ke GitHub | Commit setelah review dokumentasi |
 | Koneksi dibuat per request | ~5–20 ms per request, cukup untuk skala tugas | Optimasi pool bila perlu (bukan prioritas) |
-| `LICENSE` belum ada | repository belum memiliki lisensi | Keputusan tim |
+| `LICENSE` | repository sudah memiliki lisensi | Berkas `LICENSE` (MIT) ditambahkan |
 
 ---
 
@@ -279,7 +282,7 @@ Bagian ini sengaja dicatat agar tidak ada klaim yang berlebihan.
 |---|---|
 | `README.md` tidak ada | ✅ Dibuat — deskripsi, fitur, teknologi, arsitektur, prasyarat, cara menjalankan, konfigurasi, endpoint, troubleshooting, screenshot checklist |
 | Dokumentasi arsitektur tidak ada | ✅ Dibuat — `docs/ARCHITECTURE.md` (diagram Mermaid + ASCII, alur request, alur error, detail container) |
-| `LICENSE` tidak ada | ⏳ **MASIH TERBUKA** — penentuan lisensi adalah keputusan tim |
+| `LICENSE` tidak ada | ✅ Ditutup — berkas `LICENSE` (MIT) ditambahkan | Ganti nama pemegang hak cipta bila perlu |
 
 ---
 
