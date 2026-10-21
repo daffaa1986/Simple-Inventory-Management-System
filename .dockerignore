@@ -1,0 +1,37 @@
+# Kredensial & konfigurasi lokal - JANGAN pernah masuk image.
+.env
+**/.env
+**/.env.local
+*.env.local
+
+# Database legacy SQLite (data lama tetap ada di mesin, tidak perlu di image).
+**/*.db
+**/*.db-journal
+**/*.db-wal
+**/*.db-shm
+**/*.sqlite
+**/*.sqlite3
+
+# Python
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.venv
+**/venv
+**/env
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/*.egg-info
+
+# Node
+**/node_modules
+
+# Git & editor
+**/.git
+**/.gitignore
+**/.vscode
+**/.idea
+**/.DS_Store
+**/Thumbs.db
