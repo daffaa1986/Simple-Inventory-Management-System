@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Stockify — Simple Inventory Management System
 
 Aplikasi manajemen inventori sederhana untuk menambah, melihat, mengubah, dan menghapus
@@ -483,3 +484,7 @@ Ringkasnya yang perlu disiapkan:
 ---
 
 Dibuat untuk tugas **Cloud Services** — Tim Stockify.
+=======
+# Simple-Inventory-Management-System
+Simple Inventory Management System built with HTML, CSS, JavaScript, FastAPI, PostgreSQL, Docker, and Docker Compose for a Cloud Services course project.
+>>>>>>> origin/main
