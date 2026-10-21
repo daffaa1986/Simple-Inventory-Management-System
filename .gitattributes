@@ -1,0 +1,13 @@
+# Normalisasi line ending ke LF di semua platform.
+# Penting untuk Dockerfile, YAML, dan konfigurasi Nginx agar tidak rusak
+# saat anggota tim memakai sistem operasi berbeda (Windows/macOS/Linux).
+* text=auto eol=lf
+
+# Bukti screenshot dan berkas biner tidak boleh diubah.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.db binary
