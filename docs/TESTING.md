@@ -286,6 +286,8 @@ Bagian ini sengaja dicatat agar tidak ada klaim yang berlebihan.
 ## 7. Checklist Bukti Screenshot
 
 Screenshots untuk presentasi / laporan tugas. Tandai ✅ saat sudah diambil.
+Materi slide & naskah demo: [`PRESENTATION.md`](PRESENTATION.md) dan
+[`DEMO_SCRIPT.md`](DEMO_SCRIPT.md).
 
 | # | Screenshot | Tujuan | Cara ambil |
 |---|---|---|---|

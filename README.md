@@ -52,12 +52,18 @@ container dibuat ulang.
 | Komponen | Teknologi | Versi |
 |---|---|---|
 | Frontend | HTML, CSS, JavaScript (vanilla, tanpa build step) | — |
-| Web server | Nginx | `1.27-alpine` |
-| Backend | Python, FastAPI, Uvicorn | Python `3.13`, FastAPI `0.150` |
-| Driver database | psycopg (psycopg 3) | `3.3.x` (`psycopg[binary]`) |
-| Database | PostgreSQL | `16-alpine` |
-| Konfigurasi | Docker Compose + environment variables + `.env` | Compose v2+ |
+| Web server | Nginx | `1.27.5` (`nginx:1.27-alpine`, Alpine 3.21) |
+| Backend | Python, FastAPI, Uvicorn | Python `3.13.16`, FastAPI `0.155`, Uvicorn `0.54` |
+| Driver database | psycopg (psycopg 3) | `3.3.6` (`psycopg[binary]`) |
+| Validasi | Pydantic | `2.14.1` |
+| Konfigurasi env | python-dotenv | `1.2.4` |
+| Database | PostgreSQL | `16.15` (`postgres:16-alpine`) |
+| Orchestration | Docker Engine + Docker Compose | Docker `29.8.2`, Compose `5.5.1` |
 | Dokumentasi API | Swagger UI (otomatis dari FastAPI) | `/docs` |
+
+> `backend/requirements.txt` sengaja **tidak** mem-pin versi, sehingga image selalu
+> dibangun dengan rilis terbaru yang kompatibel. Versi di atas adalah yang benar-benar
+> terpasang di image saat dokumentasi ini dibuat.
 
 ## Arsitektur
 
@@ -291,6 +297,10 @@ curl -X DELETE http://localhost:8000/items/2
 | `stock` | integer, `0` … `2147483647` | `422` — `Input should be greater than or equal to 0` |
 | `price` | float, `≥ 0`, tanpa `NaN`/`Inf` | `422` — `Input should be greater than or equal to 0` |
 
+> Catatan: aturan di atas adalah aturan **API**. Formulir di browser imposes batas
+> yang lebih ketat pada `category` (`maxlength="60"` di `frontend/index.html`),
+> sedangkan API menerima hingga 100 karakter.
+
 Contoh error validasi (`422`):
 
 ```json
@@ -335,6 +345,8 @@ Simple-Inventory-Management-System/
 │   └── nginx/default.conf     # Nginx: static + proxy /api -> backend
 ├── docs/
 │   ├── ARCHITECTURE.md        # diagram & detail konfigurasi container
+│   ├── PRESENTATION.md        # outline slide 10 slide, pembagian peran 3 anggota, 10 Q&A
+│   ├── DEMO_SCRIPT.md         # naskah demo 10 menit + risk list & pemulihan
 │   └── TESTING.md             # laporan uji + checklist screenshot
 └── frontend/
     ├── Dockerfile             # nginx:1.27-alpine
@@ -426,6 +438,10 @@ visual/tampilan di browser dan uji beban (load test).
 ## Bukti Screenshot untuk Presentasi
 
 Checklist lengkap ada di [`docs/TESTING.md`](docs/TESTING.md#checklist-bukti-screenshot).
+Materi presentasi (outline slide, pembagian peran 3 anggota, 10 Q&A, dan naskah demo
+10 menit) ada di [`docs/PRESENTATION.md`](docs/PRESENTATION.md) dan
+[`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md).
+
 Ringkasnya yang perlu disiapkan:
 
 1. **Dashboard** — UI Stockify menampilkan data barang + 3 kartu statistik.
